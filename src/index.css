@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+   CSS Custom Properties
+   ======================================== */
+:root {
+  --gold: #D4A93A;
+  --gold-light: #F2C94C;
+  --gold-dark: #B8941F;
+  --bg-primary: #FAFAF8;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #F5F5F2;
+  --text-primary: #1A1A1A;
+  --text-secondary: #6B6B6B;
+}
+
+/* ========================================
+   Base Styles
+   ======================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-light text-dark antialiased;
+  font-family: 'Inter', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+/* ========================================
+   Custom Utilities
+   ======================================== */
+.gold-text {
+  background: linear-gradient(135deg, #D4A93A, #B8941F);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card-light {
+  @apply bg-white rounded-3xl;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-top: 2px solid var(--gold);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+@media (hover: hover) {
+  .card-light {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .card-light:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* ========================================
+   Button Styles
+   ======================================== */
+.btn-gold {
+  @apply rounded-full py-3 px-6 font-medium transition-all duration-300;
+  background: linear-gradient(135deg, #D4A93A, #B8941F);
+  color: white;
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(212, 169, 58, 0.35);
+}
+
+.btn-outline-gold {
+  @apply rounded-full border-2 border-gold bg-transparent py-3 px-6 font-medium text-gold transition-all duration-300;
+}
+
+.btn-outline-gold:hover {
+  background: rgba(212, 169, 58, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Button shine effect */
+.btn-gold,
+.btn-outline-gold {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-gold::before,
+.btn-outline-gold::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transition: left 0.4s ease;
+}
+
+.btn-gold:hover::before,
+.btn-outline-gold:hover::before {
+  left: 100%;
+}
+
+/* ========================================
+   Scrollbar Styling
+   ======================================== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F5F2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4D4D0;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B8B8B4;
+}
+
+/* ========================================
+   Selection Styling
+   ======================================== */
+::selection {
+  background: rgba(212, 169, 58, 0.25);
+  color: #1A1A1A;
+}
+
+/* ========================================
+   Focus States (Accessibility)
+   ======================================== */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid #D4A93A;
+  outline-offset: 2px;
+}
+
+input::placeholder {
+  color: #6B6B6B;
+}
+
+input:focus {
+  box-shadow: 0 0 0 2px rgba(212, 169, 58, 0.15);
+}
+
+/* ========================================
+   Section Z-index
+   ======================================== */
+section,
+nav {
+  position: relative;
+  z-index: 10;
+}
