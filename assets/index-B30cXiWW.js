@@ -1,103 +1,27 @@
-/**
- * ==========================================
- * PART 1: MODULE PRELOADER & VENDOR LIBRARIES
- * (React, React DOM, Scheduler)
- * ==========================================
- */
+/* =========================================================================
+   PASTE THIS AFTER 'var y1=p1();' IN YOUR ORIGINAL FILE
+   ========================================================================= */
 
-/* Module Preloader Polyfill */
-(function() {
-  const Z = document.createElement("link").relList;
-  if (Z && Z.supports && Z.supports("modulepreload")) return;
-  for (const Y of document.querySelectorAll('link[rel="modulepreload"]')) p(Y);
-  new MutationObserver(Y => {
-    for (const R of Y)
-      if (R.type === "childList")
-        for (const _ of R.addedNodes)
-          _.tagName === "LINK" && _.rel === "modulepreload" && p(_)
-  }).observe(document, {
-    childList: !0,
-    subtree: !0
-  });
+// -----------------------------------------------------------------------------
+// 1. HELPER FUNCTIONS
+// -----------------------------------------------------------------------------
 
-  function G(Y) {
-    const R = {};
-    return Y.integrity && (R.integrity = Y.integrity), Y.referrerPolicy && (R.referrerPolicy = Y.referrerPolicy), Y.crossOrigin === "use-credentials" ? R.credentials = "include" : Y.crossOrigin === "anonymous" ? R.credentials = "omit" : R.credentials = "same-origin", R
-  }
-
-  function p(Y) {
-    if (Y.ep) return;
-    Y.ep = !0;
-    const R = G(Y);
-    fetch(Y.href, R)
-  }
-})();
-
-/* React Library Bundle */
-var df = { exports: {} }, Su = {};
-var Nm;
-function i1() { if (Nm) return Su; Nm = 1; var N = Symbol.for("react.transitional.element"), Z = Symbol.for("react.fragment"); function G(p, Y, R) { var _ = null; if (R !== void 0 && (_ = "" + R), Y.key !== void 0 && (_ = "" + Y.key), "key" in Y) { R = {}; for (var al in Y) al !== "key" && (R[al] = Y[al]) } else R = Y; return Y = R.ref, { $$typeof: N, type: p, key: _, ref: Y !== void 0 ? Y : null, props: R } } return Su.Fragment = Z, Su.jsx = G, Su.jsxs = G, Su }
-var Em;
-function f1() { return Em || (Em = 1, df.exports = i1()), df.exports }
-var f = f1(), of = { exports: {} }, B = {};
-
-/* React DOM / Scheduler Bundle */
-var Tm;
-function s1() { /* ... (Minified React Logic) ... */ if (Tm) return B; Tm = 1; /* [Truncated for readability - Standard React 19 source] */ var N = Symbol.for("react.transitional.element"), Z = Symbol.for("react.portal"), G = Symbol.for("react.fragment"), p = Symbol.for("react.strict_mode"); /* ... */ B.version = "19.2.3"; return B }
-var jm;
-function Af() { return jm || (jm = 1, of.exports = s1()), of.exports }
-var Ft = Af(), mf = { exports: {} }, zu = {}, hf = { exports: {} }, rf = {};
-var _m;
-function d1() { return _m || (_m = 1, (function(N) { /* ... (Scheduler Logic) ... */ })(rf)), rf }
-var Mm;
-function o1() { return Mm || (Mm = 1, hf.exports = d1()), hf.exports }
-var pf = { exports: {} }, Cl = {};
-var Om;
-function m1() { if (Om) return Cl; Om = 1; var N = Af(); /* ... (React DOM Internals) ... */ Cl.version = "19.2.3"; return Cl }
-var Dm;
-function h1() { if (Dm) return pf.exports; Dm = 1; function N() { try { __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(N) } catch (Z) { console.error(Z) } } return N(), pf.exports = m1(), pf.exports }
-var Um;
-function r1() { if (Um) return zu; Um = 1; var N = o1(), Z = Af(), G = h1(); /* ... (React DOM Client Logic) ... */ zu.createRoot = function(l, t) { /* ... */ return new sf(t) }; zu.hydrateRoot = function(l, t, a) { /* ... */ return new Qn(t) }; zu.version = "19.2.3"; return zu }
-
-var Hm;
-function p1() {
-  if (Hm) return mf.exports;
-  Hm = 1;
-  function N() { try { __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(N) } catch (Z) { console.error(Z) } }
-  return N(), mf.exports = r1(), mf.exports
-}
-
-var y1 = p1(); // React DOM Client instance
-
-
-/**
- * ==========================================
- * PART 2: APPLICATION UTILITIES & HELPERS
- * ==========================================
- */
-
-// String formatters (kebab-case, CamelCase, PascalCase)
 const x1 = N => N.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase(),
   v1 = N => N.replace(/^([A-Z])|[\s-_]+(\w)/g, (Z, G, p) => p ? p.toUpperCase() : G.toLowerCase()),
   Cm = N => {
     const Z = v1(N);
     return Z.charAt(0).toUpperCase() + Z.slice(1)
   },
-  // ClassName joiner
   Bm = (...N) => N.filter((Z, G, p) => !!Z && Z.trim() !== "" && p.indexOf(Z) === G).join(" ").trim(),
-  // Check for Aria props
   g1 = N => {
     for (const Z in N)
       if (Z.startsWith("aria-") || Z === "role" || Z === "title") return !0
   };
 
-/**
- * ==========================================
- * PART 3: ICON LIBRARY (LUCIDE REACT)
- * ==========================================
- */
+// -----------------------------------------------------------------------------
+// 2. ICON LIBRARY (LUCIDE REACT)
+// -----------------------------------------------------------------------------
 
-// Default SVG attributes
 var b1 = {
   xmlns: "http://www.w3.org/2000/svg",
   width: 24,
@@ -110,101 +34,168 @@ var b1 = {
   strokeLinejoin: "round"
 };
 
-// Base Icon Component
-const A1 = Ft.forwardRef(({ color: N = "currentColor", size: Z = 24, strokeWidth: G = 2, absoluteStrokeWidth: p, className: Y = "", children: R, iconNode: _, ...al }, D) => 
-  Ft.createElement("svg", {
-    ref: D,
-    ...b1,
-    width: Z,
-    height: Z,
-    stroke: N,
-    strokeWidth: p ? Number(G) * 24 / Number(Z) : G,
-    className: Bm("lucide", Y),
-    ...!R && !g1(al) && { "aria-hidden": "true" },
-    ...al
-  }, [
-    ..._.map(([z, F]) => Ft.createElement(z, F)),
-    ...Array.isArray(R) ? R : [R]
-  ])
-);
+const A1 = Ft.forwardRef(({
+  color: N = "currentColor",
+  size: Z = 24,
+  strokeWidth: G = 2,
+  absoluteStrokeWidth: p,
+  className: Y = "",
+  children: R,
+  iconNode: _,
+  ...al
+}, D) => Ft.createElement("svg", {
+  ref: D,
+  ...b1,
+  width: Z,
+  height: Z,
+  stroke: N,
+  strokeWidth: p ? Number(G) * 24 / Number(Z) : G,
+  className: Bm("lucide", Y),
+  ...!R && !g1(al) && {
+    "aria-hidden": "true"
+  },
+  ...al
+}, [..._.map(([z, F]) => Ft.createElement(z, F)), ...Array.isArray(R) ? R : [R]]));
 
-// Helper to create specific icons
 const jl = (N, Z) => {
-  const G = Ft.forwardRef(({ className: p, ...Y }, R) => 
-    Ft.createElement(A1, {
-      ref: R,
-      iconNode: Z,
-      className: Bm(`lucide-${x1(Cm(N))}`, `lucide-${N}`, p),
-      ...Y
-    })
-  );
+  const G = Ft.forwardRef(({
+    className: p,
+    ...Y
+  }, R) => Ft.createElement(A1, {
+    ref: R,
+    iconNode: Z,
+    className: Bm(`lucide-${x1(Cm(N))}`, `lucide-${N}`, p),
+    ...Y
+  }));
   return G.displayName = Cm(N), G
 };
 
-/**
- * Icon Definitions
- */
-const S1 = [ ["path", { d: "M12 6.528V3a1 1 0 0 1 1-1h0", key: "11qiee" }], ["path", { d: "M18.237 21A15 15 0 0 0 22 11a6 6 0 0 0-10-4.472A6 6 0 0 0 2 11a15.1 15.1 0 0 0 3.763 10 3 3 0 0 0 3.648.648 5.5 5.5 0 0 1 5.178 0A3 3 0 0 0 18.237 21", key: "110c12" }] ],
-  yf = jl("apple", S1); // Apple Icon
+// --- Icon Definitions ---
+const S1 = [
+    ["path", { d: "M12 6.528V3a1 1 0 0 1 1-1h0", key: "11qiee" }],
+    ["path", { d: "M18.237 21A15 15 0 0 0 22 11a6 6 0 0 0-10-4.472A6 6 0 0 0 2 11a15.1 15.1 0 0 0 3.763 10 3 3 0 0 0 3.648.648 5.5 5.5 0 0 1 5.178 0A3 3 0 0 0 18.237 21", key: "110c12" }]
+  ],
+  yf = jl("apple", S1);
 
-const z1 = [ ["path", { d: "m16 3 4 4-4 4", key: "1x1c3m" }], ["path", { d: "M20 7H4", key: "zbl0bi" }], ["path", { d: "m8 21-4-4 4-4", key: "h9nckh" }], ["path", { d: "M4 17h16", key: "g4d7ey" }] ],
+const z1 = [
+    ["path", { d: "m16 3 4 4-4 4", key: "1x1c3m" }],
+    ["path", { d: "M20 7H4", key: "zbl0bi" }],
+    ["path", { d: "m8 21-4-4 4-4", key: "h9nckh" }],
+    ["path", { d: "M4 17h16", key: "g4d7ey" }]
+  ],
   N1 = jl("arrow-right-left", z1);
 
-const E1 = [ ["path", { d: "M5 12h14", key: "1ays0h" }], ["path", { d: "m12 5 7 7-7 7", key: "xquz4c" }] ],
+const E1 = [
+    ["path", { d: "M5 12h14", key: "1ays0h" }],
+    ["path", { d: "m12 5 7 7-7 7", key: "xquz4c" }]
+  ],
   Rm = jl("arrow-right", E1);
 
-const T1 = [ ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }], ["path", { d: "m9 12 2 2 4-4", key: "dzmm74" }] ],
+const T1 = [
+    ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+    ["path", { d: "m9 12 2 2 4-4", key: "dzmm74" }]
+  ],
   xf = jl("circle-check", T1);
 
-const j1 = [ ["circle", { cx: "8", cy: "8", r: "6", key: "3yglwk" }], ["path", { d: "M18.09 10.37A6 6 0 1 1 10.34 18", key: "t5s6rm" }], ["path", { d: "M7 6h1v4", key: "1obek4" }], ["path", { d: "m16.71 13.88.7.71-2.82 2.82", key: "1rbuyh" }] ],
+const j1 = [
+    ["circle", { cx: "8", cy: "8", r: "6", key: "3yglwk" }],
+    ["path", { d: "M18.09 10.37A6 6 0 1 1 10.34 18", key: "t5s6rm" }],
+    ["path", { d: "M7 6h1v4", key: "1obek4" }],
+    ["path", { d: "m16.71 13.88.7.71-2.82 2.82", key: "1rbuyh" }]
+  ],
   vf = jl("coins", j1);
 
-const _1 = [ ["path", { d: "M12 15V3", key: "m9g1x1" }], ["path", { d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4", key: "ih7n3h" }], ["path", { d: "m7 10 5 5 5-5", key: "brsn70" }] ],
+const _1 = [
+    ["path", { d: "M12 15V3", key: "m9g1x1" }],
+    ["path", { d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4", key: "ih7n3h" }],
+    ["path", { d: "m7 10 5 5 5-5", key: "brsn70" }]
+  ],
   gf = jl("download", _1);
 
-const M1 = [ ["path", { d: "M15 3h6v6", key: "1q9fwt" }], ["path", { d: "M10 14 21 3", key: "gplh6r" }], ["path", { d: "M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6", key: "a6xqqp" }] ],
+const M1 = [
+    ["path", { d: "M15 3h6v6", key: "1q9fwt" }],
+    ["path", { d: "M10 14 21 3", key: "gplh6r" }],
+    ["path", { d: "M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6", key: "a6xqqp" }]
+  ],
   Vn = jl("external-link", M1);
 
-const O1 = [ ["path", { d: "M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z", key: "1oefj6" }], ["path", { d: "M14 2v5a1 1 0 0 0 1 1h5", key: "wfsgrz" }], ["path", { d: "m9 15 2 2 4-4", key: "1grp1n" }] ],
+const O1 = [
+    ["path", { d: "M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z", key: "1oefj6" }],
+    ["path", { d: "M14 2v5a1 1 0 0 0 1 1h5", key: "wfsgrz" }],
+    ["path", { d: "m9 15 2 2 4-4", key: "1grp1n" }]
+  ],
   D1 = jl("file-check", O1);
 
-const U1 = [ ["rect", { x: "3", y: "8", width: "18", height: "4", rx: "1", key: "bkv52" }], ["path", { d: "M12 8v13", key: "1c76mn" }], ["path", { d: "M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7", key: "6wjy6b" }], ["path", { d: "M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5", key: "1ihvrl" }] ],
+const U1 = [
+    ["rect", { x: "3", y: "8", width: "18", height: "4", rx: "1", key: "bkv52" }],
+    ["path", { d: "M12 8v13", key: "1c76mn" }],
+    ["path", { d: "M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7", key: "6wjy6b" }],
+    ["path", { d: "M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5", key: "1ihvrl" }]
+  ],
   qm = jl("gift", U1);
 
-const H1 = [ ["path", { d: "M10 18v-7", key: "wt116b" }], ["path", { d: "M11.12 2.198a2 2 0 0 1 1.76.006l7.866 3.847c.476.233.31.949-.22.949H3.474c-.53 0-.695-.716-.22-.949z", key: "1m329m" }], ["path", { d: "M14 18v-7", key: "vav6t3" }], ["path", { d: "M18 18v-7", key: "aexdmj" }], ["path", { d: "M3 22h18", key: "8prr45" }], ["path", { d: "M6 18v-7", key: "1ivflk" }] ],
+const H1 = [
+    ["path", { d: "M10 18v-7", key: "wt116b" }],
+    ["path", { d: "M11.12 2.198a2 2 0 0 1 1.76.006l7.866 3.847c.476.233.31.949-.22.949H3.474c-.53 0-.695-.716-.22-.949z", key: "1m329m" }],
+    ["path", { d: "M14 18v-7", key: "vav6t3" }],
+    ["path", { d: "M18 18v-7", key: "aexdmj" }],
+    ["path", { d: "M3 22h18", key: "8prr45" }],
+    ["path", { d: "M6 18v-7", key: "1ivflk" }]
+  ],
   C1 = jl("landmark", H1);
 
-const R1 = [ ["rect", { width: "18", height: "11", x: "3", y: "11", rx: "2", ry: "2", key: "1w4ew1" }], ["path", { d: "M7 11V7a5 5 0 0 1 10 0v4", key: "fwvmzm" }] ],
+const R1 = [
+    ["rect", { width: "18", height: "11", x: "3", y: "11", rx: "2", ry: "2", key: "1w4ew1" }],
+    ["path", { d: "M7 11V7a5 5 0 0 1 10 0v4", key: "fwvmzm" }]
+  ],
   q1 = jl("lock", R1);
 
-const B1 = [ ["path", { d: "m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7", key: "132q7q" }], ["rect", { x: "2", y: "4", width: "20", height: "16",rx: "2", key: "izxlao" }] ],
+const B1 = [
+    ["path", { d: "m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7", key: "132q7q" }],
+    ["rect", { x: "2", y: "4", width: "20", height: "16", rx: "2", key: "izxlao" }]
+  ],
   Y1 = jl("mail", B1);
 
-const G1 = [ ["path", { d: "M4 5h16", key: "1tepv9" }], ["path", { d: "M4 12h16", key: "1lakjw" }], ["path", { d: "M4 19h16", key: "1djgab" }] ],
+const G1 = [
+    ["path", { d: "M4 5h16", key: "1tepv9" }],
+    ["path", { d: "M4 12h16", key: "1lakjw" }],
+    ["path", { d: "M4 19h16", key: "1djgab" }]
+  ],
   X1 = jl("menu", G1);
 
-const Q1 = [ ["path", { d: "M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z", key: "oel41y" }] ],
+const Q1 = [
+    ["path", { d: "M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z", key: "oel41y" }]
+  ],
   Z1 = jl("shield", Q1);
 
-const V1 = [ ["rect", { width: "14", height: "20", x: "5", y: "2", rx: "2", ry: "2", key: "1yt0o3" }], ["path", { d: "M12 18h.01", key: "mhygvu" }] ],
+const V1 = [
+    ["rect", { width: "14", height: "20", x: "5", y: "2", rx: "2", ry: "2", key: "1yt0o3" }],
+    ["path", { d: "M12 18h.01", key: "mhygvu" }]
+  ],
   L1 = jl("smartphone", V1);
 
-const w1 = [ ["path", { d: "M16 7h6v6", key: "box55l" }], ["path", { d: "m22 7-8.5 8.5-5-5L2 17", key: "1t1m79" }] ],
+const w1 = [
+    ["path", { d: "M16 7h6v6", key: "box55l" }],
+    ["path", { d: "m22 7-8.5 8.5-5-5L2 17", key: "1t1m79" }]
+  ],
   Ln = jl("trending-up", w1);
 
-const K1 = [ ["path", { d: "M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1", key: "18etb6" }], ["path", { d: "M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4", key: "xoc0q4" }] ],
+const K1 = [
+    ["path", { d: "M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1", key: "18etb6" }],
+    ["path", { d: "M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4", key: "xoc0q4" }]
+  ],
   bf = jl("wallet", K1);
 
-const J1 = [ ["path", { d: "M18 6 6 18", key: "1bl5f8" }], ["path", { d: "m6 6 12 12", key: "d8bk6v" }] ],
+const J1 = [
+    ["path", { d: "M18 6 6 18", key: "1bl5f8" }],
+    ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
+  ],
   k1 = jl("x", J1);
 
-/**
- * ==========================================
- * PART 4: MAIN APP COMPONENT & DATA
- * ==========================================
- */
+// -----------------------------------------------------------------------------
+// 3. APPLICATION DATA & CONSTANTS
+// -----------------------------------------------------------------------------
 
-// App Data
 const W1 = [{
     id: 1,
     image: "/app-mockup-1.jpg",
@@ -236,11 +227,14 @@ const W1 = [{
     colors: ["#D4A93A", "#F2C94C", "#E5B93D", "#C99A2E", "#B8941F"]
   };
 
-// Main Component Definition (F1)
+// -----------------------------------------------------------------------------
+// 4. MAIN APP COMPONENT (F1)
+// -----------------------------------------------------------------------------
+
 function F1() {
   const [N, Z] = Ft.useState(!1), [G, p] = Ft.useState(!1);
-  
-  // Scroll Effect Hook
+
+  // Scroll Event Listener
   Ft.useEffect(() => {
     const _ = () => {
       Z(window.scrollY > 100)
@@ -250,28 +244,43 @@ function F1() {
     }), () => window.removeEventListener("scroll", _)
   }, []);
 
-  // Gold Coin Animation Setup
-  const Y = Array.from({ length: Ot.count }, (_, al) => {
+  // Generate Falling Coins
+  const Y = Array.from({
+    length: Ot.count
+  }, (_, al) => {
     const D = Ot.minSize + Math.random() * (Ot.maxSize - Ot.minSize),
       z = Math.random() * 100,
       F = Ot.minDuration + Math.random() * (Ot.maxDuration - Ot.minDuration),
       C = -Math.random() * Ot.maxDuration,
       ol = Ot.colors[Math.floor(Math.random() * Ot.colors.length)],
       Rl = .5 + Math.random() * .35;
-    return { id: al, size: D, left: z, duration: F, delay: C, color: ol, opacity: Rl }
+    return {
+      id: al,
+      size: D,
+      left: z,
+      duration: F,
+      delay: C,
+      color: ol,
+      opacity: Rl
+    }
   });
 
   // Smooth Scroll Handler
   const R = _ => {
-    document.getElementById(_)?.scrollIntoView({ behavior: "smooth" }), p(!1)
+    document.getElementById(_)?.scrollIntoView({
+      behavior: "smooth"
+    }), p(!1)
   };
 
-  // Render Function (JSX)
+  // ---------------------------------------------------------------------------
+  // RENDER (JSX)
+  // ---------------------------------------------------------------------------
   return f.jsxs("div", {
     "code-path": "src/App.tsx:118:5",
     className: "relative bg-light text-dark overflow-x-hidden",
     children: [
-      /* Animated Background Coins */
+      
+      /* BACKGROUND COINS ANIMATION */
       f.jsx("div", {
         "code-path": "src/App.tsx:120:7",
         className: "coins-container",
@@ -289,8 +298,8 @@ function F1() {
           }
         }, _.id))
       }),
-      
-      /* Navigation Bar */
+
+      /* NAVIGATION BAR */
       f.jsx("nav", {
         "code-path": "src/App.tsx:139:7",
         className: `fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${N ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full pointer-events-none"}`,
@@ -347,7 +356,7 @@ function F1() {
         })
       }),
 
-      /* Hero Section */
+      /* HERO SECTION */
       f.jsx("section", {
         "code-path": "src/App.tsx:183:7",
         className: "relative z-10 min-h-screen flex items-center py-20 lg:py-0",
@@ -358,7 +367,6 @@ function F1() {
             "code-path": "src/App.tsx:185:11",
             className: "flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 max-w-7xl mx-auto",
             children: [
-              /* Hero Text Content */
               f.jsxs("div", {
                 "code-path": "src/App.tsx:187:13",
                 className: "flex-1 text-center lg:text-left max-w-xl",
@@ -380,7 +388,6 @@ function F1() {
                       f.jsxs("button", { onClick: () => R("about"), className: "btn-outline-gold flex items-center gap-2 text-sm sm:text-base", children: ["See how it works ", f.jsx(Rm, { className: "w-4 h-4" })] })
                     ]
                   }),
-                  /* App Stores */
                   f.jsxs("div", {
                     className: "flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-3",
                     children: [
@@ -404,7 +411,6 @@ function F1() {
                   })
                 ]
               }),
-              /* Hero Image */
               f.jsx("div", {
                 "code-path": "src/App.tsx:231:13",
                 className: "flex-1 flex justify-center lg:justify-end max-w-sm lg:max-w-md xl:max-w-lg",
@@ -418,7 +424,7 @@ function F1() {
         })
       }),
 
-      /* Feature Grid Section */
+      /* FEATURES SECTION */
       f.jsx("section", {
         "code-path": "src/App.tsx:245:7",
         className: "relative z-10 py-16 lg:py-24",
@@ -429,7 +435,6 @@ function F1() {
             "code-path": "src/App.tsx:247:11",
             className: "grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 max-w-6xl mx-auto",
             children: [
-              /* Card 1 */
               f.jsxs("div", {
                 className: "card-light p-5 sm:p-6 lg:p-8 flex flex-col",
                 children: [
@@ -439,7 +444,6 @@ function F1() {
                   f.jsx("div", { className: "mt-4 pt-4 border-t border-black/5", children: f.jsxs("div", { className: "flex items-center gap-2 text-gold text-sm font-medium", children: [f.jsx(xf, { className: "w-4 h-4" }), " Zero fees"] }) })
                 ]
               }),
-              /* Card 2 */
               f.jsxs("div", {
                 className: "card-light p-5 sm:p-6 lg:p-8 flex flex-col",
                 children: [
@@ -449,7 +453,6 @@ function F1() {
                   f.jsx("div", { className: "mt-4 pt-4 border-t border-black/5", children: f.jsxs("div", { className: "flex items-center gap-2 text-gold text-sm font-medium", children: [f.jsx(xf, { className: "w-4 h-4" }), " Any wallet"] }) })
                 ]
               }),
-              /* Card 3 */
               f.jsxs("div", {
                 className: "card-light p-5 sm:p-6 lg:p-8 flex flex-col",
                 children: [
@@ -464,7 +467,7 @@ function F1() {
         })
       }),
 
-      /* About Section */
+      /* ABOUT SECTION */
       f.jsx("section", {
         "code-path": "src/App.tsx:300:7",
         id: "about",
@@ -511,7 +514,7 @@ function F1() {
         })
       }),
 
-      /* Price Widget Section */
+      /* LIVE PRICE & ALLOCATION */
       f.jsx("section", {
         "code-path": "src/App.tsx:349:7",
         className: "relative z-10 py-16 lg:py-24",
@@ -522,7 +525,6 @@ function F1() {
             children: f.jsxs("div", {
               className: "flex flex-col lg:flex-row gap-6 lg:gap-8",
               children: [
-                /* Price Left Side */
                 f.jsxs("div", {
                   className: "flex-1 text-center lg:text-left",
                   children: [
@@ -532,7 +534,6 @@ function F1() {
                     f.jsxs("button", { className: "btn-gold w-full sm:w-auto flex items-center justify-center gap-2", children: ["Buy Gold ", f.jsx(Rm, { className: "w-4 h-4" })] })
                   ]
                 }),
-                /* Allocation Right Side */
                 f.jsxs("div", {
                   className: "flex-1 border-t lg:border-t-0 lg:border-l border-black/8 pt-5 lg:pt-0 lg:pl-6",
                   children: [
@@ -555,7 +556,7 @@ function F1() {
         })
       }),
 
-      /* Vault Section */
+      /* VAULT SECTION */
       f.jsx("section", {
         "code-path": "src/App.tsx:399:7",
         id: "vault",
@@ -598,7 +599,7 @@ function F1() {
         })
       }),
 
-      /* Yield Section */
+      /* YIELD SECTION */
       f.jsx("section", {
         "code-path": "src/App.tsx:445:7",
         id: "yield",
@@ -647,7 +648,7 @@ function F1() {
         })
       }),
 
-      /* Gift Section */
+      /* GIFT SECTION */
       f.jsx("section", {
         "code-path": "src/App.tsx:496:7",
         id: "gift",
@@ -687,7 +688,7 @@ function F1() {
         })
       }),
 
-      /* App Download Section (Dark) */
+      /* DOWNLOAD & FOOTER SECTION */
       f.jsx("section", {
         "code-path": "src/App.tsx:534:7",
         className: "relative z-10 bg-light-tertiary py-16 lg:py-24",
@@ -727,7 +728,7 @@ function F1() {
         })
       }),
 
-      /* Footer CTA Section */
+      /* CTA & LINKS */
       f.jsx("section", {
         "code-path": "src/App.tsx:592:7",
         className: "relative z-10 bg-light py-16 lg:py-24",
@@ -744,7 +745,6 @@ function F1() {
                 f.jsxs("a", { href: St.webApp, className: "btn-gold flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3", children: [f.jsx(Vn, { className: "w-4 h-4" }), " Launch Web App"] })
               ]
             }),
-            /* Newsletter Signup */
             f.jsxs("div", {
               className: "bg-white rounded-2xl border border-black/6 shadow-card p-5 sm:p-6 lg:p-8 max-w-lg mx-auto mb-10",
               children: [
@@ -759,7 +759,6 @@ function F1() {
                 })
               ]
             }),
-            /* Footer Links */
             f.jsx("div", {
               className: "grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-left max-w-2xl mx-auto mb-8",
               children: [{ title: "Product", links: ["Buy", "Send", "Yield", "Borrow", "Gift"] }, { title: "Learn", links: ["What is XAUT", "Vaulting", "Fees", "FAQ"] }, { title: "Legal", links: ["Terms", "Privacy", "Disclosures"] }, { title: "Connect", links: ["Twitter", "Discord", "Telegram"] }].map((_, al) => f.jsxs("div", {
@@ -769,7 +768,6 @@ function F1() {
                 ]
               }, al))
             }),
-            /* Footer Copyright */
             f.jsxs("div", {
               className: "pt-6 border-t border-black/8 flex flex-col sm:flex-row items-center justify-between gap-2",
               children: [
@@ -779,16 +777,14 @@ function F1() {
             })
           ]
         })
-      })
-    ]
+      })]
   })
 }
 
-/**
- * ==========================================
- * PART 5: APP MOUNTING
- * ==========================================
- */
+// -----------------------------------------------------------------------------
+// 5. MOUNT APPLICATION
+// -----------------------------------------------------------------------------
+
 y1.createRoot(document.getElementById("root")).render(
   f.jsx(Ft.StrictMode, {
     "code-path": "src/main.tsx:7:3",
