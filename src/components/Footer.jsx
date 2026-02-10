@@ -2,7 +2,7 @@ function Footer() {
     const currentYear = new Date().getFullYear()
 
     return (
-        <footer className="py-12 border-t border-black/[0.06]">
+        <footer className="py-12 bg-walnut-900 border-t border-walnut-800">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                     {/* Logo */}
@@ -10,24 +10,24 @@ function Footer() {
                         <div className="w-7 h-7 bg-gold rounded-full flex items-center justify-center">
                             <span className="text-white font-display font-bold text-xs">G</span>
                         </div>
-                        <span className="font-display font-semibold text-lg text-dark">gold.fi</span>
+                        <span className="font-display font-semibold text-lg text-walnut-100">gold.fi</span>
                     </div>
 
                     {/* Links */}
                     <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
-                        <a href="#" className="text-dark-secondary hover:text-dark transition-colors">
+                        <a href="#" className="text-walnut-400 hover:text-walnut-100 transition-colors">
                             Privacy
                         </a>
-                        <a href="#" className="text-dark-secondary hover:text-dark transition-colors">
+                        <a href="#" className="text-walnut-400 hover:text-walnut-100 transition-colors">
                             Terms
                         </a>
-                        <a href="#" className="text-dark-secondary hover:text-dark transition-colors">
+                        <a href="#" className="text-walnut-400 hover:text-walnut-100 transition-colors">
                             Contact
                         </a>
                     </div>
 
                     {/* Copyright */}
-                    <p className="text-sm text-dark-secondary/60">
+                    <p className="text-sm text-walnut-500">
                         &copy; {currentYear} gold.fi
                     </p>
                 </div>

@@ -36,7 +36,7 @@ function Features() {
         <section id="features" className="py-4 lg:py-6">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Features List */}
-                <div className="divide-y divide-black/[0.08]">
+                <div className="divide-y divide-walnut-200/60">
                     {features.map((feature, index) => (
                         <div
                             key={index}
@@ -48,10 +48,10 @@ function Features() {
                                 </span>
                             </div>
                             <div className="flex-1">
-                                <h3 className="text-base sm:text-lg font-display font-semibold text-dark mb-1">
+                                <h3 className="text-base sm:text-lg font-display font-semibold text-walnut-800 mb-1">
                                     {feature.title}
                                 </h3>
-                                <p className="text-sm sm:text-base text-dark-secondary leading-relaxed">
+                                <p className="text-sm sm:text-base text-walnut-500 leading-relaxed">
                                     {feature.description}
                                 </p>
                             </div>
