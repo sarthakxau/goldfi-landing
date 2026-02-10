@@ -1,7 +1,8 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import Features from './components/Features'
 import About from './components/About'
+import Features from './components/Features'
+import Comparison from './components/Comparison'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
 
@@ -11,8 +12,9 @@ function App() {
             <Navbar />
             <main>
                 <Hero />
-                <Features />
                 <About />
+                <Features />
+                <Comparison />
                 <CTA />
             </main>
             <Footer />
