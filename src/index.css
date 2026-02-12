@@ -7,3 +7,24 @@
     @apply bg-[#FFFDF5] text-[#004D4D] antialiased;
   }
 }
+
+@keyframes gold-shimmer {
+  0% {
+    text-shadow: 0 0 8px rgba(205, 127, 50, 0.9), 0 0 20px rgba(205, 127, 50, 0.6);
+    color: #CD7F32;
+  }
+
+  30% {
+    text-shadow: 0 0 16px rgba(255, 215, 0, 0.8), 0 0 30px rgba(205, 127, 50, 0.4);
+    color: #FFD700;
+  }
+
+  100% {
+    text-shadow: none;
+    color: inherit;
+  }
+}
+
+.price-shimmer {
+  animation: gold-shimmer 1.5s ease-out;
+}

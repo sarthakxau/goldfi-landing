@@ -7,6 +7,7 @@ const Clock = () => {
         const updateTime = () => {
             const now = new Date();
             const timeString = now.toLocaleTimeString('en-US', {
+                timeZone: 'Asia/Kolkata',
                 hour12: false,
                 hour: '2-digit',
                 minute: '2-digit',

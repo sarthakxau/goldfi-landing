@@ -8,18 +8,13 @@ const Footer = () => {
                     <div className="font-bold text-lg mb-6 leading-tight">
                         THE GOLD COMPANY<br />OF BOMBAY
                     </div>
-                    <p className="max-w-xs opacity-70 text-sm">
-                        Regulated by SEBI. <br />
-                        License No. IN-GOLD-2024-882<br />
-                        Mumbai, Maharashtra, India.
-                    </p>
+
                 </div>
 
                 <div>
                     <h4 className="font-bold uppercase mb-4 text-xs tracking-widest">Platform</h4>
                     <ul className="space-y-2 text-sm opacity-80">
-                        <li><a href="#" className="hover:text-[#FF7722]">Live Markets</a></li>
-                        <li><a href="#" className="hover:text-[#FF7722]">Sovereign Bonds</a></li>
+
                         <li><a href="#" className="hover:text-[#FF7722]">Digital Gold</a></li>
                         <li><a href="#" className="hover:text-[#FF7722]">Vault Audit</a></li>
                     </ul>

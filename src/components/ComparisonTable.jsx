@@ -2,12 +2,13 @@ import React from 'react';
 
 const ComparisonTable = () => {
     return (
-        <section className="py-20 px-6 md:px-12 border-b border-ink bg-white">
+        <section className="py-12 md:py-20 px-4 md:px-12 border-b border-ink bg-white">
             <div className="max-w-6xl mx-auto">
-                <h2 className="text-4xl md:text-5xl font-bold uppercase mb-16 text-center text-ink">How it compares.</h2>
+                <h2 className="text-3xl md:text-5xl font-bold uppercase mb-8 md:mb-16 text-center text-ink">How it compares.</h2>
 
-                <div className="overflow-x-auto">
-                    <table className="w-full text-left border-collapse min-w-[800px]">
+                <p className="md:hidden text-center text-xs font-mono opacity-40 mb-4 text-ink">← SWIPE TO COMPARE →</p>
+                <div className="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
+                    <table className="w-full text-left border-collapse min-w-[600px]">
                         <thead>
                             <tr className="border-b border-ink text-xs uppercase tracking-widest text-ink text-opacity-60">
                                 <th className="py-4 px-4 font-normal w-1/5">Feature</th>
