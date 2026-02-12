@@ -14,7 +14,7 @@ const FeaturesSection = () => {
 
                 <div className="mt-8 border border-ink p-6 bg-white shadow-[8px_8px_0px_0px_rgba(0,77,77,1)]">
                     <div className="flex justify-between items-end mb-4 font-mono text-xs">
-                        <span className="opacity-60 text-ink">YIELD GENERATION</span>
+                        <span className="opacity-60 text-ink">UNLOCK YOUR GOLD'S POTENTIAL</span>
                         <span className="text-[#FF7722]">+5.0% APY</span>
                     </div>
                     <div className="h-32 flex items-end gap-1">
