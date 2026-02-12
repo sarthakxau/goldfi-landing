@@ -8,7 +8,7 @@ const HeroSection = () => {
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#FF7722] to-transparent"></div>
 
                 <div className="opacity-0 animate-[reveal_0.8s_forwards]">
-                    <span className="font-mono text-[#FF7722] text-[10px] md:text-xs mb-4 block tracking-widest">EST. 2024 — BOMBAY</span>
+                    <span className="font-mono text-[#FF7722] text-[10px] md:text-xs mb-4 block tracking-widest">EST. 2026 — BOMBAY</span>
                     <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold uppercase leading-[0.9] tracking-tight mb-6 md:mb-8 text-ink">
                         Grow your <br />
                         wealth in <br />

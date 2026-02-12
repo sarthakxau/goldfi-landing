@@ -33,7 +33,7 @@ const Footer = () => {
 
             <div className="border-t border-ink pt-8 flex flex-col md:flex-row justify-between items-end md:items-center gap-4 text-xs font-mono uppercase opacity-60">
                 <div>
-                    © 2024 The Gold Company of Bombay. All rights reserved.
+                    © 2026 The Gold Company of Bombay. All rights reserved.
                 </div>
                 <div className="flex gap-4">
                     <span className="hover:text-[#FF7722] cursor-pointer">Twitter</span>
