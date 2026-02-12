@@ -4,7 +4,6 @@ const GoldBar3D = () => {
     const [isHovered, setIsHovered] = useState(false);
 
     const goldGradients = {
-        // More vibrant, multi-stop gold gradients
         primary: 'linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%)',
         side: 'linear-gradient(to bottom, #8A6E2F, #C3A343, #8A6E2F)',
         highlight: 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0.1) 100%)',
@@ -26,12 +25,13 @@ const GoldBar3D = () => {
             position: 'relative',
             transformStyle: 'preserve-3d',
             transition: 'transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+            // Unified rotation to prevent flipping
             transform: isHovered
-                ? 'rotateX(-25deg) rotateY(45deg) scale(1.1)'
-                : 'rotateX(-20deg) rotateY(-30deg)',
+                ? 'rotateX(-25deg) rotateY(50deg) scale(1.1)'
+                : 'rotateX(-20deg) rotateY(30deg)',
             animation: isHovered
                 ? 'float-rotate-fast 4s infinite ease-in-out'
-                : 'float-rotate 8s infinite ease-in-out',
+                : 'float-rotate-slow 8s infinite ease-in-out',
         },
         face: {
             background: goldGradients.primary,
@@ -83,9 +83,11 @@ const GoldBar3D = () => {
                     <div style={styles.shimmer}></div>
                     <div style={styles.engraving}>
                         <div className="text-xs tracking-[0.2em] font-bold mt-4">FINE GOLD</div>
-                        <div className="text-4xl font-serif font-black tracking-tighter">999.9</div>
+                        {/* 999.9 -> 24K */}
+                        <div className="text-4xl font-serif font-black tracking-tighter">24K</div>
+                        {/* GC -> GB */}
                         <div className="w-12 h-12 border-2 border-[rgba(80,40,20,0.5)] rounded-full grid place-items-center font-bold text-sm mb-4">
-                            GC
+                            GB
                         </div>
                     </div>
                 </div>
@@ -97,13 +99,18 @@ const GoldBar3D = () => {
                 <div style={{ ...styles.face, ...styles.bottom }}></div>
             </div>
 
-            {/* In-component extra keyframes for the fast hover float */}
+            {/* Local keyframes to ensure smooth transitions and consistent orientation */}
             <style dangerouslySetInnerHTML={{
                 __html: `
+                @keyframes float-rotate-slow {
+                    0% { transform: rotateX(-20deg) rotateY(30deg) translateY(0px) scale(1); }
+                    50% { transform: rotateX(-20deg) rotateY(20deg) translateY(-20px) scale(1); }
+                    100% { transform: rotateX(-20deg) rotateY(30deg) translateY(0px) scale(1); }
+                }
                 @keyframes float-rotate-fast {
-                    0% { transform: rotateX(-20deg) rotateY(30deg) translateY(0px) scale(1.1); }
-                    50% { transform: rotateX(-30deg) rotateY(60deg) translateY(-30px) scale(1.1); }
-                    100% { transform: rotateX(-20deg) rotateY(30deg) translateY(0px) scale(1.1); }
+                    0% { transform: rotateX(-25deg) rotateY(50deg) translateY(0px) scale(1.1); }
+                    50% { transform: rotateX(-35deg) rotateY(70deg) translateY(-40px) scale(1.1); }
+                    100% { transform: rotateX(-25deg) rotateY(50deg) translateY(0px) scale(1.1); }
                 }
             `}} />
         </div>

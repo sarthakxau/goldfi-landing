@@ -12,7 +12,7 @@ const HeroSection = () => {
                     <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold uppercase leading-[0.9] tracking-tight mb-6 md:mb-8 text-ink">
                         Grow your <br />
                         wealth in <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#CD7F32] to-[#8B4513]">Gold.</span>
+                        <span className="text-[#FF7722]">Gold.</span>
                     </h1>
                     <p className="text-base md:text-xl max-w-md mb-8 md:mb-10 leading-relaxed font-medium text-ink">
                         Earn, save, and send the world's hardest asset to anyone in India with zero friction.
