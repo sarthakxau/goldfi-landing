@@ -27,6 +27,10 @@ export default {
         reveal: {
           'to': { opacity: '1', transform: 'translateY(0)' },
         },
+        pulse: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.5' },
+        },
       },
       animation: {
         'float-rotate': 'float-rotate 8s infinite ease-in-out',
