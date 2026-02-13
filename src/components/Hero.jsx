@@ -12,8 +12,8 @@ function Hero() {
                         <span className="gold-text">gold.fi</span>
                     </h1>
                     <p className="text-lg sm:text-xl text-walnut-300 max-w-2xl mx-auto leading-relaxed font-light">
-                        A self-custody Swiss gold vault in your pocket. Hold, earn,
-                        borrow, send, and spend gold — with no custody fees.
+                        Grow your wealth in gold. A Swiss gold vault in your pocket to hold, earn,
+                        borrow, send, and spend gold — with zero fees.
                     </p>
 
                     {/* CTA */}
