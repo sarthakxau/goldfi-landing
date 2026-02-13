@@ -8,11 +8,11 @@ function Hero() {
                 {/* Content */}
                 <div className="text-center mb-16 lg:mb-20">
                     <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display font-bold text-walnut-50 mb-6 leading-[1.05] tracking-tight">
-                        Say hello to{' '}
-                        <span className="gold-text">gold.fi</span>
+                        Grow your wealth with{' '}
+                        <span className="gold-text">Gold.fi</span>
                     </h1>
                     <p className="text-lg sm:text-xl text-walnut-300 max-w-2xl mx-auto leading-relaxed font-light">
-                        Grow your wealth in gold. A Swiss gold vault in your pocket to hold, earn,
+                        A Swiss gold vault in your pocket to hold, earn,
                         borrow, send, and spend gold — with zero fees.
                     </p>
 
