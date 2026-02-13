@@ -2,17 +2,12 @@ const features = [
     {
         stat: '0%',
         title: 'No custody fees',
-        description: 'On-chain gold, not a rented vault. No storage premium.',
+        description: 'Zero storage premium.',
     },
     {
         stat: '3–5%',
         title: 'Yield on gold',
         description: 'Institutional lending. Paid in gold.',
-    },
-    {
-        stat: '60%',
-        title: 'Borrow against it',
-        description: 'Stablecoin liquidity. No credit checks.',
     },
     {
         stat: '₹10',
@@ -22,12 +17,12 @@ const features = [
     {
         stat: '→',
         title: 'Send gold instantly',
-        description: 'To anyone. Peer-to-peer. On-chain.',
+        description: 'To anyone. Peer-to-peer.',
     },
     {
         stat: '◆',
         title: 'Spend with a card',
-        description: 'Spend your gold. Live spot rate.',
+        description: 'Unlock the value of your gold.',
     },
 ]
 
