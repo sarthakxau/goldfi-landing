@@ -9,7 +9,7 @@ function About() {
                 </h2>
                 <p className="text-lg sm:text-xl text-walnut-500 leading-relaxed max-w-2xl">
                     Buy gold as easily as sending a UPI payment. Earn on it. Borrow against it. Send it to
-                    anyone. Spend it with a card. Self-custody, no fees, no walled gardens.
+                    anyone. Spend with a card. Self-custody, no fees, no walled gardens.
                 </p>
             </div>
         </section>
