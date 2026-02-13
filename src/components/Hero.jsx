@@ -18,7 +18,7 @@ function Hero() {
 
                     {/* CTA */}
                     <div className="mt-10">
-                        <a href="app.gold.fi" className="btn-gold inline-flex items-center gap-2 text-base py-3.5 px-8">
+                        <a href="https://app.gold.fi" className="btn-gold inline-flex items-center gap-2 text-base py-3.5 px-8">
                             Open Gold.fi
                             <span className="text-lg">→</span>
                         </a>
