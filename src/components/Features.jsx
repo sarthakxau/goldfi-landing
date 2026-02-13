@@ -1,23 +1,23 @@
 const features = [
     {
         stat: '0%',
-        title: 'No custody fees',
-        description: 'Zero storage premium.',
+        title: 'No custody premium',
+        description: 'Buy and hold 24K gold with zero fees.',
     },
     {
-        stat: '3–5%',
-        title: 'Yield on gold',
-        description: 'Institutional lending. Paid in gold.',
+        stat: '3-5%',
+        title: 'Returns on gold',
+        description: 'Create wealth and grow your gold.',
     },
     {
         stat: '₹10',
         title: 'Buy with UPI',
-        description: 'As easy as sending a payment.',
+        description: 'Start buying gold with as little as ₹10.',
     },
     {
         stat: '→',
         title: 'Send gold instantly',
-        description: 'To anyone. Peer-to-peer.',
+        description: 'To anyone in India, instantly.',
     },
     {
         stat: '◆',
