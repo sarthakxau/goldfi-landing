@@ -4,8 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-gold.fi landing page — a single-page marketing site for a self-custody Swiss gold vault app targeting the Indian market. Built on Tether Gold (XAUT).
-
+gold.fi — landing site for a self-custody Swiss gold vault app targeting the Indian market. Built on Tether Gold (XAUT).
 ## Commands
 
 ```bash
