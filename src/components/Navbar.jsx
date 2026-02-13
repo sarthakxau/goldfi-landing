@@ -23,8 +23,8 @@ function Navbar() {
                         <a href="#about" className="text-sm font-medium text-walnut-500 hover:text-walnut-800 transition-colors">
                             About
                         </a>
-                        <a href="#download" className="btn-gold text-sm py-2 px-5">
-                            Get Early Access
+                        <a href="app.gold.fi" className="btn-gold text-sm py-2 px-5">
+                            Open Gold.fi
                         </a>
                     </div>
 
