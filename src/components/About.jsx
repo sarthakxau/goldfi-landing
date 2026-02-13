@@ -8,8 +8,7 @@ function About() {
                     for modern India.
                 </h2>
                 <p className="text-lg sm:text-xl text-walnut-500 leading-relaxed max-w-2xl">
-                    Buy gold as easily as sending a UPI payment. Earn on it. Borrow against it. Send it to
-                    anyone. Spend with a card. Self-custody, no fees, no walled gardens.
+                    Buy gold as easily as sending a UPI payment. Save and earn gold, and get a card to spend against the value of your holdings.
                 </p>
             </div>
         </section>
