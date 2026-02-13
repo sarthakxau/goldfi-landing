@@ -28,21 +28,21 @@ function Hero() {
                 {/* App Mockups - Three phones */}
                 <div className="relative flex items-end justify-center gap-3 sm:gap-5 lg:gap-6 mx-auto max-w-3xl">
                     {/* Left phone - Earning screen */}
-                    <div className="w-[140px] sm:w-[180px] lg:w-[220px] flex-shrink-0 opacity-85">
+                    <div className="w-[140px] sm:w-[180px] lg:w-[220px] flex-shrink-0 opacity-85 animate-fade-up animate-fade-up-delay-1">
                         <div className="app-phone-card rounded-2xl sm:rounded-3xl border border-gold/[0.08] bg-white overflow-hidden shadow-dark-card">
                             <img src="/earning.jpeg" alt="Earning Screen" className="w-full h-auto block" />
                         </div>
                     </div>
 
                     {/* Center phone - Main dashboard (larger) */}
-                    <div className="w-[170px] sm:w-[220px] lg:w-[260px] flex-shrink-0 -mb-2 z-10">
+                    <div className="w-[170px] sm:w-[220px] lg:w-[260px] flex-shrink-0 -mb-2 z-10 animate-fade-up animate-fade-up-delay-2">
                         <div className="app-phone-card rounded-2xl sm:rounded-3xl border border-gold/[0.12] bg-white overflow-hidden shadow-dark-card">
                             <img src="/dashboard.jpeg" alt="Dashboard Screen" className="w-full h-auto block" />
                         </div>
                     </div>
 
                     {/* Right phone - Redeem screen */}
-                    <div className="w-[140px] sm:w-[180px] lg:w-[220px] flex-shrink-0 opacity-85">
+                    <div className="w-[140px] sm:w-[180px] lg:w-[220px] flex-shrink-0 opacity-85 animate-fade-up animate-fade-up-delay-3">
                         <div className="app-phone-card rounded-2xl sm:rounded-3xl border border-gold/[0.08] bg-white overflow-hidden shadow-dark-card">
                             <img src="/redeem.jpeg" alt="Redeem Screen" className="w-full h-auto block" />
                         </div>
