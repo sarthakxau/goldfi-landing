@@ -6,11 +6,11 @@ function CTA() {
 
             <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-walnut-50 mb-5 tracking-tight leading-[1.1]">
-                    Your gold.{' '}
-                    <span className="gold-text">Your keys.</span>
+                    Join the gold.{' '}
+                    <span className="gold-text">revolution.</span>
                 </h2>
                 <p className="text-lg sm:text-xl text-walnut-300 mb-10 max-w-xl mx-auto font-light">
-                    No custody fees. No walled gardens. Gold that works.
+                    Start saving today.
                 </p>
 
                 {/* CTA Button */}
