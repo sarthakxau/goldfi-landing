@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>gold.fi — Logo concepts (preview only)</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0c0c10;
+      color: #FBF6F0;
+      min-height: 100vh;
+      padding: 3rem 2rem;
+    }
+    h1 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 2rem;
+    }
+    .concepts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      align-items: flex-start;
+    }
+    .concept {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 1rem;
+      padding: 2rem;
+      min-width: 200px;
+    }
+    .concept h2 {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(212,169,58,0.9);
+      margin-bottom: 1.5rem;
+    }
+    /* Concept A: Gradient wordmark */
+    .logo-a {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #F2C94C 0%, #D4A93A 50%, #B8941F 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    /* Concept B: Icon + wordmark */
+    .logo-b {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .logo-b-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #F2C94C, #D4A93A);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: #0c0c10;
+    }
+    .logo-b-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #FBF6F0;
+    }
+    .logo-b-text span { color: #D4A93A; }
+    /* Concept C: Minimal serif + dot */
+    .logo-c {
+      font-family: Georgia, serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #FBF6F0;
+    }
+    .logo-c .dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #F2C94C, #D4A93A);
+      vertical-align: 0.35em;
+      margin: 0 0.05em;
+    }
+    .note {
+      margin-top: 3rem;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.35);
+    }
+  </style>
+</head>
+<body>
+  <h1>Logo concepts — preview only (not implemented)</h1>
+  <div class="concepts">
+    <div class="concept">
+      <h2>A. Gradient wordmark</h2>
+      <div class="logo-a">gold.fi</div>
+      <p style="margin-top:0.75rem;font-size:0.7rem;color:rgba(255,255,255,0.4);">Bold gradient, no icon. Works on dark and light.</p>
+    </div>
+    <div class="concept">
+      <h2>B. Icon + wordmark</h2>
+      <div class="logo-b">
+        <div class="logo-b-icon">₮</div>
+        <span class="logo-b-text">gold<span>.fi</span></span>
+      </div>
+      <p style="margin-top:0.75rem;font-size:0.7rem;color:rgba(255,255,255,0.4);">Tether Gold mark + “gold.fi” in gold.</p>
+    </div>
+    <div class="concept">
+      <h2>C. Serif + gold dot</h2>
+      <div class="logo-c">gold<span class="dot"></span>fi</div>
+      <p style="margin-top:0.75rem;font-size:0.7rem;color:rgba(255,255,255,0.4);">Classic serif with a single gold dot as bridge.</p>
+    </div>
+  </div>
+  <p class="note">Open this file in a browser to preview. Replace App Store / Play links in AppDownloadWidget with real URLs when ready.</p>
+</body>
+</html>
