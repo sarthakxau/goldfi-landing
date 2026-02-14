@@ -166,7 +166,7 @@ function Features() {
                                     animate={isInView ? { opacity: 1, x: 0 } : {}}
                                     transition={{ duration: 0.5, delay: 0.05 + index * 0.08, ease: [0.16, 1, 0.3, 1] }}
                                     onClick={() => setActive(index)}
-                                    className={`w-full text-left py-6 sm:py-7 flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-0 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-transparent rounded-lg ${
+                                    className={`w-full text-left py-6 sm:py-7 flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-0 transition-all duration-300 group rounded-lg ${
                                         active === index ? 'pl-2' : 'pl-0 hover:pl-2'
                                     }`}
                                     aria-expanded={active === index}
