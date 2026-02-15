@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useRef, useCallback, Fragment } from 'react'
 import { motion, AnimatePresence, useInView } from 'framer-motion'
 
 function TetherGoldLogo({ size = 40 }) {
@@ -204,53 +204,52 @@ function YieldStrategy() {
                     className="grid lg:grid-cols-2 gap-8 lg:gap-12"
                 >
                     {/* Left — Clickable step tracker */}
-                    <div>
-                        <div className="space-y-0 mb-8">
-                            {steps.map((step, i) => (
+                    <div className="mb-8 mx-auto sm:mx-0" style={{ display: 'grid', gridTemplateColumns: '44px 1fr', gap: '0 16px' }}>
+                        {steps.map((step, i) => (
+                            <Fragment key={step.id}>
+                                {/* Circle + connector */}
+                                <div className="flex flex-col items-center cursor-pointer" onClick={() => goToStep(i)}>
+                                    <div className={`w-11 h-11 rounded-full flex items-center justify-center text-sm font-semibold transition-colors duration-500 ${
+                                        showing && i < currentStep
+                                            ? 'bg-gold text-white shadow-lg shadow-gold/20'
+                                            : showing && i === currentStep
+                                                ? 'bg-gold/20 text-gold border-2 border-gold'
+                                                : 'bg-walnut-800 text-walnut-600 border border-walnut-700 hover:border-walnut-500 hover:text-walnut-400'
+                                    }`}>
+                                        {showing && i < currentStep ? (
+                                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        ) : (i + 1)}
+                                    </div>
+                                    {i < steps.length - 1 && (
+                                        <motion.div
+                                            className={`w-0.5 flex-1 ${
+                                                showing && i < currentStep ? 'bg-gold' : 'bg-walnut-800'
+                                            }`}
+                                            initial={{ scaleY: 0 }}
+                                            animate={{ scaleY: showing && i < currentStep ? 1 : 0 }}
+                                            transition={{ duration: 0.7, delay: 0.2 }}
+                                            style={{ transformOrigin: 'top' }}
+                                        />
+                                    )}
+                                </div>
+                                {/* Text label */}
                                 <button
-                                    key={step.id}
                                     onClick={() => goToStep(i)}
-                                    className="flex items-start gap-4 text-left w-full group cursor-pointer focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-transparent rounded-lg p-2 -m-2"
+                                    className="text-left group cursor-pointer focus:outline-none -mt-0.5 pb-8 flex flex-col gap-1 items-start max-w-fit"
                                     aria-label={`Go to step ${i + 1}: ${step.label}`}
                                     aria-pressed={showing && i === currentStep}
                                 >
-                                    <div className="flex flex-col items-center">
-                                        <div className={`w-11 h-11 rounded-full flex items-center justify-center text-sm font-semibold transition-all duration-500 ${
-                                            showing && i < currentStep
-                                                ? 'bg-gold text-white shadow-lg shadow-gold/20'
-                                                : showing && i === currentStep
-                                                    ? 'bg-gold/20 text-gold border-2 border-gold scale-110'
-                                                    : 'bg-walnut-800 text-walnut-600 border border-walnut-700 group-hover:border-walnut-500 group-hover:text-walnut-400'
-                                        }`}>
-                                            {showing && i < currentStep ? (
-                                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                                                </svg>
-                                            ) : (i + 1)}
-                                        </div>
-                                        {i < steps.length - 1 && (
-                                            <motion.div 
-                                                className={`w-0.5 h-12 ${
-                                                    showing && i < currentStep ? 'bg-gold' : 'bg-walnut-800'
-                                                }`}
-                                                initial={{ scaleY: 0 }}
-                                                animate={{ scaleY: showing && i < currentStep ? 1 : 0 }}
-                                                transition={{ duration: 0.7, delay: 0.2 }}
-                                                style={{ transformOrigin: 'top' }}
-                                            />
-                                        )}
-                                    </div>
-                                    <div className="pt-2.5 pb-8">
-                                        <p className={`text-base font-semibold transition-colors duration-500 ${
-                                            showing && i <= currentStep ? 'text-walnut-100' : 'text-walnut-600 group-hover:text-walnut-400'
-                                        }`}>{step.label}</p>
-                                        <p className={`text-sm transition-colors duration-500 ${
-                                            showing && i <= currentStep ? 'text-walnut-400' : 'text-walnut-700 group-hover:text-walnut-600'
-                                        }`}>{step.sub}</p>
-                                    </div>
+                                    <p className={`text-base font-semibold transition-colors duration-500 ${
+                                        showing && i <= currentStep ? 'text-walnut-100' : 'text-walnut-600 group-hover:text-walnut-400'
+                                    }`}>{step.label}</p>
+                                    <p className={`text-sm transition-colors duration-500 ${
+                                        showing && i <= currentStep ? 'text-walnut-400' : 'text-walnut-700 group-hover:text-walnut-600'
+                                    }`}>{step.sub}</p>
                                 </button>
-                            ))}
-                        </div>
+                            </Fragment>
+                        ))}
                     </div>
 
                     {/* Right — Interactive visual */}
@@ -332,26 +331,29 @@ function YieldStrategy() {
                             )}
 
                             {currentStep === 3 && (
-                                <motion.div key="card" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.4 }} className="space-y-4">
+                                <motion.div key="card" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.4 }} className="space-y-4 w-full">
                                     <div className="relative">
-                                        <div className="bg-gradient-to-br from-gold-dark via-gold to-gold-light rounded-3xl p-8 relative overflow-hidden aspect-[1.6/1]">
+                                        <div className="bg-gradient-to-br from-gold-dark via-gold to-gold-light rounded-3xl p-5 sm:p-8 relative overflow-hidden aspect-[1.6/1]">
                                             <div className="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full -translate-y-16 translate-x-16" />
                                             <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/5 rounded-full translate-y-12 -translate-x-8" />
                                             <div className="relative h-full flex flex-col justify-between">
                                                 <div className="flex items-center justify-between">
-                                                    <span className="text-sm text-white/80 font-medium uppercase tracking-[0.2em]">Gold.fi</span>
-                                                    <TetherGoldLogo size={32} />
+                                                    <span className="text-xs sm:text-sm text-white/80 font-medium uppercase tracking-[0.2em]">Gold.fi</span>
+                                                    <TetherGoldLogo size={28} />
                                                 </div>
                                                 <div>
-                                                    <p className="text-white font-mono text-lg tracking-[0.2em] mb-2">•••• •••• •••• 3224</p>
-                                                    <p className="text-sm text-white/60 mb-1">Pratik Patel</p>
+                                                    <p className="text-white font-mono text-sm sm:text-lg tracking-[0.2em] mb-1 sm:mb-2">•••• •••• •••• 3224</p>
+                                                    <p className="text-xs sm:text-sm text-white/60">Pratik Patel</p>
                                                 </div>
                                                 <div className="flex items-end justify-between">
                                                     <div>
                                                         <p className="text-[10px] text-white/50 uppercase tracking-widest">Balance</p>
-                                                        <p className="text-2xl font-bold text-white tabular-nums">₹{(cardBalance * 718).toLocaleString('en-IN')}</p>
+                                                        <p className="text-xl sm:text-2xl font-bold text-white tabular-nums relative">
+                                                            <span className="invisible">₹{(45 * 718).toLocaleString('en-IN')}</span>
+                                                            <span className="absolute left-0 bottom-0">₹{(cardBalance * 718).toLocaleString('en-IN')}</span>
+                                                        </p>
                                                     </div>
-                                                    <span className="text-2xl text-white/90 font-bold tracking-wider">VISA</span>
+                                                    <span className="text-xl sm:text-2xl text-white/90 font-bold tracking-wider">VISA</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -359,15 +361,18 @@ function YieldStrategy() {
                                             <motion.div className="absolute inset-0 rounded-3xl border-2 border-gold" animate={{ opacity: [0.4, 1, 0.4] }} transition={{ duration: 0.8, repeat: Infinity }} />
                                         )}
                                     </div>
-                                    <div className="glass-card rounded-2xl p-5">
-                                        <div className="flex items-center justify-between">
-                                            <div className="flex items-center gap-3">
-                                                <div className="w-8 h-8 rounded-full bg-emerald-900/30 flex items-center justify-center">
+                                    <div className="glass-card rounded-2xl p-4 sm:p-5">
+                                        <div className="flex items-center justify-between gap-3">
+                                            <div className="flex items-center gap-3 min-w-0">
+                                                <div className="w-8 h-8 rounded-full bg-emerald-900/30 flex items-center justify-center flex-shrink-0">
                                                     <svg className="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                                                 </div>
-                                                <div><p className="text-sm font-semibold text-walnut-100">Yield → Card</p><p className="text-xs text-walnut-500">Loaded from Aave V3 earnings</p></div>
+                                                <div className="min-w-0"><p className="text-sm font-semibold text-walnut-100">Yield → Card</p><p className="text-xs text-walnut-500 truncate">Loaded from Aave V3 earnings</p></div>
                                             </div>
-                                            <p className="text-lg font-bold text-emerald-400">+₹{(cardBalance * 718).toLocaleString('en-IN')}</p>
+                                            <p className="text-base sm:text-lg font-bold text-emerald-400 flex-shrink-0 tabular-nums relative">
+                                                <span className="invisible">+₹{(45 * 718).toLocaleString('en-IN')}</span>
+                                                <span className="absolute right-0 top-0">+₹{(cardBalance * 718).toLocaleString('en-IN')}</span>
+                                            </p>
                                         </div>
                                     </div>
                                 </motion.div>
