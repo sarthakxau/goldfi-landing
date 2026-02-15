@@ -52,12 +52,12 @@ function Footer() {
                         >
                             Features
                         </a>
-                        <a 
+                        {/* <a 
                             href="#faq" 
                             className="text-walnut-500 hover:text-walnut-200 transition-colors focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-transparent rounded-lg px-2 py-1"
                         >
                             FAQ
-                        </a>
+                        </a> */}
                         <a 
                             href="/privacy" 
                             className="text-walnut-500 hover:text-walnut-200 transition-colors focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-transparent rounded-lg px-2 py-1"

@@ -41,7 +41,7 @@ function CTA() {
                         Join the <span className="gold-text">gold</span> revolution.
                     </h2>
                     <p className="text-lg sm:text-xl lg:text-2xl text-walnut-500 mb-8 max-w-2xl mx-auto font-light leading-relaxed">
-                        Start saving today. Buy gold with ₹10, earn yield, and build wealth the modern way.
+                        Buy gold with ₹10, earn yield, and build wealth the modern way.
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
@@ -52,7 +52,7 @@ function CTA() {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            Open Gold.fi
+                            Open App
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>

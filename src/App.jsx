@@ -33,17 +33,17 @@ function App() {
                     <GiftGold />
                 </Suspense>
                 
-                <Suspense fallback={<SectionLoader type="chart" />}>
+                {/* <Suspense fallback={<SectionLoader type="chart" />}>
                     <GoldVsINR />
-                </Suspense>
+                </Suspense> */}
                 
                 <Suspense fallback={<SectionLoader type="default" />}>
                     <Comparison />
                 </Suspense>
                 
-                <Suspense fallback={<SectionLoader type="features" />}>
+                {/* <Suspense fallback={<SectionLoader type="features" />}>
                     <FAQ />
-                </Suspense>
+                </Suspense> */}
                 
                 <Suspense fallback={<SectionLoader type="default" />}>
                     <CTA />

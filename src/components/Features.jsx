@@ -9,13 +9,13 @@ const features = [
         visualDescription: 'Every gram is backed by physical gold in Swiss vaults. No premiums, no storage fees, no hidden costs.',
         visual: 'custody',
     },
-    {
-        stat: '3–5%',
-        title: 'Returns on gold',
-        description: 'Create wealth and grow your gold. Earn yield through DeFi strategies — Aave V3, Fluid, and more — all managed for you.',
-        visualDescription: 'Deploy your gold into battle-tested DeFi protocols. Watch your holdings grow automatically while you sleep.',
-        visual: 'yield',
-    },
+    // {
+    //     stat: '3–5%',
+    //     title: 'Returns on gold',
+    //     description: 'Create wealth and grow your gold. Earn yield through DeFi strategies — Aave V3, Fluid, and more — all managed for you.',
+    //     visualDescription: 'Deploy your gold into battle-tested DeFi protocols. Watch your holdings grow automatically while you sleep.',
+    //     visual: 'yield',
+    // },
     {
         stat: '₹10',
         title: 'Buy with UPI',
@@ -119,12 +119,15 @@ function FeatureVisual({ type }) {
     }
     if (type === 'card') {
         return (
-            <div className="bg-gradient-to-r from-gold-dark to-gold rounded-lg p-2.5 max-w-[160px]">
-                <div className="flex items-center justify-between">
-                    <span className="text-[7px] text-white/70 uppercase tracking-widest">gold.fi</span>
-                    <span className="text-[8px] text-white/80 font-bold">VISA</span>
+            <div className="bg-gradient-to-br from-gold via-gold-dark to-[#8a7424] rounded-lg p-2.5 sm:p-3 w-full max-w-[140px]" style={{ aspectRatio: '1.586' }}>
+                <div className="flex items-center justify-between mb-2">
+                    <span className="text-[7px] text-white/80 uppercase tracking-[0.2em] font-semibold">gold.fi</span>
+                    <span className="text-[8px] text-white font-bold tracking-wide">VISA</span>
                 </div>
-                <p className="text-white font-mono text-[8px] mt-1.5 tracking-wider">•••• 3224</p>
+                <div className="mt-auto">
+                    <p className="text-white/50 font-mono text-[6px] tracking-widest mb-0.5">VIRTUAL CARD</p>
+                    <p className="text-white font-mono text-[8px] tracking-[0.15em]">•••• •••• •••• 3224</p>
+                </div>
             </div>
         )
     }

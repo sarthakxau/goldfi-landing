@@ -5,7 +5,7 @@ const metrics = [
     { value: '24K', label: 'Pure Swiss Gold', sub: 'Backed by Tether Gold (XAUT)', accent: 'from-gold-light to-gold' },
     { value: '0%', label: 'Custody Fees', sub: 'No premiums, no storage charges', accent: 'from-emerald-400 to-emerald-600' },
     { value: '₹10', label: 'Minimum Buy', sub: 'Start with as little as a chai', accent: 'from-gold to-gold-dark' },
-    { value: '4.3%', label: 'Avg. APY', sub: 'Earn yield on your gold holdings', accent: 'from-emerald-400 to-emerald-500' },
+    // { value: '4.3%', label: 'Avg. APY', sub: 'Earn yield on your gold holdings', accent: 'from-emerald-400 to-emerald-500' },
 ]
 
 function About() {

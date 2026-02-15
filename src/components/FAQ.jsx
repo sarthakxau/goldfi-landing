@@ -137,7 +137,7 @@ function FAQ() {
                     ))}
                 </div>
 
-                <motion.div
+                {/* <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
@@ -156,7 +156,7 @@ function FAQ() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
                     </a>
-                </motion.div>
+                </motion.div> */}
             </div>
         </section>
     )
