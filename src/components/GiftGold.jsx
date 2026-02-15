@@ -100,13 +100,14 @@ function GiftGold() {
                     </motion.p>
                 </motion.div>
 
+                {/* Desktop: 4-column grid */}
                 <motion.div
                     initial={{ opacity: 0, y: 24 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-                    className="card-light p-6 sm:p-8 lg:p-10"
+                    className="hidden sm:block card-light p-6 sm:p-8 lg:p-10"
                 >
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
                         {giftSteps.map((step, i) => (
                             <motion.div
                                 key={step.label}
@@ -175,6 +176,109 @@ function GiftGold() {
                                     transition={{ duration: activeStep === i ? 2.5 : 0.3, ease: 'linear' }}
                                 />
                             </div>
+                        ))}
+                    </div>
+                </motion.div>
+
+                {/* Mobile: vertical stepper */}
+                <motion.div
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+                    className="sm:hidden card-light p-5"
+                >
+                    <div className="flex flex-col gap-1">
+                        {giftSteps.map((step, i) => {
+                            const isActive = activeStep === i
+                            const isPast = activeStep > i
+                            return (
+                                <motion.div
+                                    key={step.label}
+                                    initial={{ opacity: 0, x: -12 }}
+                                    animate={isInView ? { opacity: 1, x: 0 } : {}}
+                                    transition={{ delay: 0.2 + i * 0.08, duration: 0.5 }}
+                                    className={`flex items-center gap-4 rounded-xl px-4 py-3.5 transition-all duration-500 cursor-pointer ${
+                                        isActive
+                                            ? 'bg-gold/10'
+                                            : 'bg-transparent'
+                                    }`}
+                                    onClick={() => setActiveStep(i)}
+                                    role="button"
+                                    tabIndex={0}
+                                    aria-label={`Step ${i + 1}: ${step.label}`}
+                                    aria-pressed={isActive}
+                                    onKeyDown={(e) => {
+                                        if (e.key === 'Enter' || e.key === ' ') {
+                                            e.preventDefault()
+                                            setActiveStep(i)
+                                        }
+                                    }}
+                                >
+                                    {/* Step number / check circle */}
+                                    <div className={`relative shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-500 ${
+                                        isActive
+                                            ? 'bg-gold text-white shadow-md shadow-gold/25'
+                                            : isPast
+                                                ? 'bg-gold/20 text-gold'
+                                                : 'bg-walnut-100 text-walnut-400'
+                                    }`}>
+                                        {isPast ? (
+                                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        ) : (
+                                            i + 1
+                                        )}
+                                    </div>
+
+                                    {/* Content */}
+                                    <div className="flex-1 min-w-0">
+                                        <p className={`text-sm font-semibold transition-colors duration-500 ${
+                                            isActive ? 'text-walnut-900' : isPast ? 'text-walnut-700' : 'text-walnut-800'
+                                        }`}>
+                                            {step.label}
+                                        </p>
+                                        <motion.p
+                                            className={`text-xs transition-colors duration-500 ${
+                                                isActive ? 'text-walnut-600' : 'text-walnut-400'
+                                            }`}
+                                            initial={false}
+                                            animate={{
+                                                height: isActive ? 'auto' : 0,
+                                                opacity: isActive ? 1 : 0,
+                                                marginTop: isActive ? 2 : 0
+                                            }}
+                                            transition={{ duration: 0.3 }}
+                                            style={{ overflow: 'hidden' }}
+                                        >
+                                            {step.detail}
+                                        </motion.p>
+                                    </div>
+
+                                    {/* Icon on the right */}
+                                    <div className={`shrink-0 transition-all duration-500 ${isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}>
+                                        {step.icon(isActive)}
+                                    </div>
+                                </motion.div>
+                            )
+                        })}
+                    </div>
+
+                    {/* Mobile progress dots */}
+                    <div className="mt-4 flex justify-center gap-2">
+                        {giftSteps.map((_, i) => (
+                            <button
+                                key={i}
+                                className={`rounded-full transition-all duration-500 ${
+                                    activeStep === i
+                                        ? 'w-6 h-1.5 bg-gold'
+                                        : activeStep > i
+                                            ? 'w-1.5 h-1.5 bg-gold/40'
+                                            : 'w-1.5 h-1.5 bg-walnut-200'
+                                }`}
+                                onClick={() => setActiveStep(i)}
+                                aria-label={`Go to step ${i + 1}`}
+                            />
                         ))}
                     </div>
                 </motion.div>
