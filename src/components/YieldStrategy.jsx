@@ -30,9 +30,9 @@ const steps = [
 ]
 
 const strategies = [
-    { name: 'Aave V3', chain: 'Ethereum', apy: '3.1%', risk: 'Low risk', tvl: '' },
-    { name: 'Fluid', chain: 'Ethereum', apy: '4.8%', risk: 'Medium', tvl: '' },
-    { name: 'Morpho', chain: 'Base', apy: '5.2%', risk: 'Medium', tvl: '' },
+    { name: 'Aave V3', chain: 'Ethereum', apy: '3.1%', risk: 'Low risk'},
+    { name: 'Fluid', chain: 'Ethereum', apy: '4.8%', risk: 'Medium'},
+    { name: 'Morpho', chain: 'Base', apy: '5.2%', risk: 'Medium'},
 ]
 
 function YieldStrategy() {
