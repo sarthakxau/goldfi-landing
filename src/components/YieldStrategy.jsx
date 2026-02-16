@@ -24,7 +24,7 @@ function TetherGoldLogo({ size = 40 }) {
 
 const steps = [
     { id: 'deposit', label: 'Deposit Gold', sub: 'Choose amount to deploy' },
-    { id: 'strategy', label: 'Select Strategy', sub: 'Pick a yield vault' },
+    { id: 'strategy', label: 'Select Strategy', sub: 'Pick a yield strategy' },
     { id: 'earning', label: 'Earning Yield', sub: 'Watch your gold grow' },
     { id: 'card', label: 'Load Card', sub: 'Spend your earnings' },
 ]
@@ -276,7 +276,7 @@ function YieldStrategy() {
 
                             {currentStep === 1 && (
                                 <motion.div key="strategy" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.4 }} className="space-y-3">
-                                    <p className="text-xs text-walnut-500 uppercase tracking-widest mb-3">Select a yield vault</p>
+                                    <p className="text-xs text-walnut-500 uppercase tracking-widest mb-3">Select a yield strategy</p>
                                     {strategies.map((s, i) => (
                                         <motion.div key={s.name} initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.12, duration: 0.4 }}
                                             className={`rounded-2xl p-5 border cursor-pointer transition-all duration-300 ${selectedStrategy === i ? 'glass-card border-gold/40 shadow-lg shadow-gold/5' : 'glass-card border-walnut-700/30 hover:border-walnut-600/40'}`}
