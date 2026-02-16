@@ -4,7 +4,7 @@ import { motion, useInView } from 'framer-motion'
 const rows = [
     { feature: 'Custody fees', goldfi: 'None', digital: '3–5% premium', etfs: '0.4% / yr', physical: '0.5–1.5% / yr' },
     { feature: 'Yield', goldfi: '3–5% APY', digital: null, etfs: null, physical: null },
-    { feature: 'Borrow', goldfi: 'Instant, on-chain', digital: null, etfs: 'Margin only', physical: 'Banks only' },
+    // { feature: 'Borrow', goldfi: 'Instant, on-chain', digital: null, etfs: 'Margin only', physical: 'Banks only' },
     { feature: 'Transfer', goldfi: 'Anyone, instantly', digital: null, etfs: null, physical: 'In person' },
     { feature: 'Spend', goldfi: 'Card', digital: null, etfs: null, physical: null },
     { feature: 'Self-custody', goldfi: true, digital: null, etfs: null, physical: true },
@@ -99,32 +99,32 @@ function Comparison() {
                 </div>
 
                 {/* Mobile Cards */}
-                <div className="sm:hidden space-y-4">
+                <div className="sm:hidden space-y-2">
                     {rows.map((row, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 12 }}
                             animate={isInView ? { opacity: 1, y: 0 } : {}}
                             transition={{ duration: 0.4, delay: 0.05 + index * 0.06 }}
-                            className="border-t border-walnut-700/20 pt-4"
+                            className="border-t border-walnut-700/20 pt-6 pb-2"
                         >
-                            <p className="text-sm font-medium text-walnut-200 mb-3">{row.feature}</p>
-                            <div className="grid grid-cols-2 gap-3 text-sm">
-                                <div>
-                                    <span className="text-[10px] uppercase tracking-widest text-gold/60 block mb-0.5">Gold.fi</span>
-                                    <span className="text-gold font-medium"><CellValue value={row.goldfi} isGoldfi /></span>
+                            <p className="text-xl font-display font-bold text-walnut-50 mb-4">{row.feature}</p>
+                            <div className="grid grid-cols-2 gap-3">
+                                <div className="border border-gold/40 bg-gold/[0.06] rounded-xl p-4">
+                                    <span className="text-[10px] uppercase tracking-[0.2em] text-gold font-semibold block mb-1.5">Gold.fi</span>
+                                    <span className="text-gold font-display font-bold text-xl leading-tight"><CellValue value={row.goldfi} isGoldfi /></span>
+                                </div>
+                                <div className="flex flex-col justify-center pl-2">
+                                    <span className="text-[10px] uppercase tracking-[0.2em] text-walnut-500 font-medium block mb-1">Digital Gold</span>
+                                    <span className="text-walnut-300 text-lg font-medium"><CellValue value={row.digital} /></span>
                                 </div>
                                 <div>
-                                    <span className="text-[10px] uppercase tracking-widest text-walnut-500 block mb-0.5">Digital Gold</span>
-                                    <span className="text-walnut-400"><CellValue value={row.digital} /></span>
+                                    <span className="text-[10px] uppercase tracking-[0.2em] text-walnut-500 font-medium block mb-1">Gold ETFs</span>
+                                    <span className="text-walnut-300 text-lg font-medium"><CellValue value={row.etfs} /></span>
                                 </div>
                                 <div>
-                                    <span className="text-[10px] uppercase tracking-widest text-walnut-500 block mb-0.5">Gold ETFs</span>
-                                    <span className="text-walnut-400"><CellValue value={row.etfs} /></span>
-                                </div>
-                                <div>
-                                    <span className="text-[10px] uppercase tracking-widest text-walnut-500 block mb-0.5">Physical</span>
-                                    <span className="text-walnut-400"><CellValue value={row.physical} /></span>
+                                    <span className="text-[10px] uppercase tracking-[0.2em] text-walnut-500 font-medium block mb-1">Physical</span>
+                                    <span className="text-walnut-300 text-lg font-medium"><CellValue value={row.physical} /></span>
                                 </div>
                             </div>
                         </motion.div>

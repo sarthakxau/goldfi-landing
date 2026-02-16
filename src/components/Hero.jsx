@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import AnimatedCounter from './AnimatedCounter'
 import FloatingParticles from './FloatingParticles'
@@ -145,7 +145,6 @@ function GoldPriceTicker() {
 function Hero() {
     return (
         <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 dark-section overflow-hidden min-h-[92vh] flex items-center">
-            {/* Floating particles */}
             <FloatingParticles />
             
             {/* Rich background layers with parallax effect */}
