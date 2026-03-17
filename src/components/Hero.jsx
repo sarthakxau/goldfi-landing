@@ -109,10 +109,10 @@ function Hero() {
                         </div>
 
                         {/* Trust badges - Glass morphism pills */}
-                        <div className="mt-12 flex flex-wrap items-center gap-3 sm:gap-4 overflow-x-auto pb-2 -mx-5 sm:mx-0 px-5 sm:px-0">
+                        <div className="mt-12 flex flex-wrap items-center gap-3 sm:gap-4 overflow-visible pb-2">
                             {[
-                                { icon: <svg className="w-4 h-4 text-gold" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>, text: 'Self-custody' },
-                                { icon: <span className="text-sm" aria-hidden="true">🇨🇭</span>, text: 'Held in Swiss vaults' },
+                                { icon: <svg className="w-4 h-4 text-gold" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C9.24 2 7 4.24 7 7v3H6a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2v-8a2 2 0 00-2-2h-1V7c0-2.76-2.24-5-5-5zm0 2c1.65 0 3 1.35 3 3v3H9V7c0-1.65 1.35-3 3-3zm0 10c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z"/></svg>, text: 'Self-custody' },
+                                { icon: <span className="text-lg leading-none" aria-hidden="true">🇨🇭</span>, text: 'Held in Swiss vaults' },
                                 { icon: <span className="text-gold text-xs font-bold" aria-hidden="true">24K</span>, text: 'Pure gold' },
                             ].map((badge, i) => (
                                 <motion.div
