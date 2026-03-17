@@ -24,37 +24,37 @@ function App() {
                 <div className="bg-walnut-50">
                 <About />
                 <Features />
-                
+
                 <Suspense fallback={<SectionLoader type="default" />}>
                     <YieldStrategy />
                 </Suspense>
-                
+
                 <Suspense fallback={<SectionLoader type="cards" />}>
                     <GiftGold />
                 </Suspense>
-                
+
                 {/* <Suspense fallback={<SectionLoader type="chart" />}>
                     <GoldVsINR />
                 </Suspense> */}
-                
+
                 <Suspense fallback={<SectionLoader type="default" />}>
                     <Comparison />
                 </Suspense>
-                
+
                 {/* <Suspense fallback={<SectionLoader type="features" />}>
                     <FAQ />
                 </Suspense> */}
-                
+
                 <Suspense fallback={<SectionLoader type="default" />}>
                     <CTA />
                 </Suspense>
                 </div>
             </main>
-            
+
             <Suspense fallback={<SectionLoader />}>
                 <Footer />
             </Suspense>
-            
+
         </div>
     )
 }
