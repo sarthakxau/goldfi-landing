@@ -5,9 +5,7 @@ function Footer() {
                 {/* Trust badges */}
                 <div className="flex flex-wrap items-center justify-center gap-8 mb-10 pb-10 border-b border-walnut-700/30">
                     <div className="flex items-center gap-2.5">
-                        <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'linear-gradient(135deg, #F2C94C, #D4A93A)' }}>
-                            <span className="text-white text-[9px] font-bold">₮</span>
-                        </div>
+                        <img src="/icons/xaut-icon.svg" alt="Tether Gold" className="size-7 flex-shrink-0" />
                         <span className="text-sm text-walnut-400">Built on Tether Gold</span>
                     </div>
                     <div className="flex items-center gap-2.5">
@@ -40,32 +38,32 @@ function Footer() {
 
                     {/* Links */}
                     <nav className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-sm" aria-label="Footer navigation">
-                        <a 
-                            href="#about" 
+                        <a
+                            href="#about"
                             className="text-walnut-500 hover:text-walnut-200 transition-colors focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-transparent rounded-lg px-2 py-1"
                         >
                             About
                         </a>
-                        <a 
-                            href="#features" 
+                        <a
+                            href="#features"
                             className="text-walnut-500 hover:text-walnut-200 transition-colors focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-transparent rounded-lg px-2 py-1"
                         >
                             Features
                         </a>
-                        {/* <a 
-                            href="#faq" 
+                        {/* <a
+                            href="#faq"
                             className="text-walnut-500 hover:text-walnut-200 transition-colors focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-transparent rounded-lg px-2 py-1"
                         >
                             FAQ
                         </a> */}
-                        <a 
-                            href="/privacy" 
+                        <a
+                            href="/privacy"
                             className="text-walnut-500 hover:text-walnut-200 transition-colors focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-transparent rounded-lg px-2 py-1"
                         >
                             Privacy
                         </a>
-                        <a 
-                            href="/terms" 
+                        <a
+                            href="/terms"
                             className="text-walnut-500 hover:text-walnut-200 transition-colors focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-transparent rounded-lg px-2 py-1"
                         >
                             Terms

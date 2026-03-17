@@ -56,11 +56,7 @@ function XautTicker() {
                 >
                     <div className="flex items-center gap-3">
                         {/* Tether Gold mini logo */}
-                        <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0"
-                            style={{ background: 'linear-gradient(135deg, #F2C94C, #D4A93A)' }}
-                        >
-                            <span className="text-white text-[9px] font-bold">₮</span>
-                        </div>
+                        <img src="/icons/xaut-icon.svg" alt="Tether Gold" className="w-6 h-6 flex-shrink-0" />
                         <div className="flex items-center gap-2">
                             <span className="text-xs font-semibold text-walnut-200 tracking-wide">XAUT</span>
                             <span className="text-[10px] text-walnut-500">Tether Gold</span>
