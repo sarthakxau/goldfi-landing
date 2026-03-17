@@ -25,7 +25,7 @@ function GoldPriceTicker() {
             setError(false)
             const controller = new AbortController()
             const timeoutId = setTimeout(() => controller.abort(), 5000) // 5 second timeout
-            
+
             try {
                 const res = await fetch(
                     'https://api.coingecko.com/api/v3/simple/price?ids=tether-gold&vs_currencies=usd&include_24hr_change=true',
@@ -40,7 +40,7 @@ function GoldPriceTicker() {
                     setXautChange(data['tether-gold'].usd_24h_change)
                     setError(false)
                     setLastUpdate(Date.now())
-                    
+
                     // Update sparkline data (simulate 24h trend)
                     setSparklineData(prev => {
                         const newData = [...prev, newPrice]
@@ -76,13 +76,13 @@ function GoldPriceTicker() {
         const min = Math.min(...sparklineData)
         const max = Math.max(...sparklineData)
         const range = max - min || 1
-        
+
         const points = sparklineData.map((value, i) => {
             const x = (i / (sparklineData.length - 1)) * width
             const y = height - ((value - min) / range) * height
             return `${x},${y}`
         })
-        
+
         return `M ${points.join(' L ')}`
     }
 
@@ -97,9 +97,7 @@ function GoldPriceTicker() {
                     className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.06] backdrop-blur-sm border border-white/[0.08] hover:bg-white/[0.1] transition-colors focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-transparent group"
                     aria-label={`XAUT price: $${xautPrice.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
                 >
-                    <div className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'linear-gradient(135deg, #F2C94C, #D4A93A)' }} aria-hidden="true">
-                        <span className="text-white text-[6px] font-bold">₮</span>
-                    </div>
+                    <img src="/icons/xaut-icon.svg" alt="" className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
                     <span className="text-[10px] font-mono text-white/40 uppercase tracking-widest">XAUT</span>
                     {isLoading ? (
                         <span className="text-sm font-mono text-white/60 font-medium" aria-label="Loading price">...</span>
@@ -146,35 +144,35 @@ function Hero() {
     return (
         <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 dark-section overflow-hidden min-h-[92vh] flex items-center">
             <FloatingParticles />
-            
+
             {/* Rich background layers with parallax effect */}
-            <motion.div 
+            <motion.div
                 className="absolute inset-0 grid-pattern opacity-20"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.2 }}
                 transition={{ duration: 1 }}
             />
-            <motion.div 
+            <motion.div
                 className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-gold/[0.07] via-transparent to-transparent rounded-full blur-[80px]"
-                animate={{ 
+                animate={{
                     x: [0, 30, 0],
                     y: [0, -20, 0],
                     scale: [1, 1.1, 1]
                 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
             />
-            <motion.div 
+            <motion.div
                 className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-gold/[0.05] via-transparent to-transparent rounded-full blur-[100px]"
-                animate={{ 
+                animate={{
                     x: [0, -25, 0],
                     y: [0, 15, 0],
                     scale: [1, 1.15, 1]
                 }}
                 transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
             />
-            <motion.div 
+            <motion.div
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[400px] bg-gold/[0.02] rounded-full blur-[120px]"
-                animate={{ 
+                animate={{
                     scale: [1, 1.2, 1],
                     opacity: [0.02, 0.04, 0.02]
                 }}
@@ -193,7 +191,7 @@ function Hero() {
                             <GoldPriceTicker />
                         </div>
 
-                        <motion.h1 
+                        <motion.h1
                             className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-bold text-white mb-6 leading-[1.15] tracking-tight"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -202,9 +200,9 @@ function Hero() {
                             Grow your{' '}
                             <br className="hidden sm:block" />
                             wealth in{' '}
-                            <motion.span 
+                            <motion.span
                                 className="gold-text inline-block pb-1"
-                                animate={{ 
+                                animate={{
                                     backgroundPosition: ['0% center', '100% center', '0% center']
                                 }}
                                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -213,7 +211,7 @@ function Hero() {
                             </motion.span>
                         </motion.h1>
 
-                        <motion.p 
+                        <motion.p
                             className="text-lg sm:text-xl text-white/50 max-w-lg leading-relaxed font-light mb-10"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -224,8 +222,8 @@ function Hero() {
                         </motion.p>
 
                         <div className="flex flex-col sm:flex-row items-start gap-4">
-                            <motion.a 
-                                href="https://app.gold.fi" 
+                            <motion.a
+                                href="https://app.gold.fi"
                                 className="btn-gold inline-flex items-center gap-2.5 text-base py-3.5 px-8 focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-transparent"
                                 aria-label="Open Gold.fi app"
                                 whileHover={{ scale: 1.05 }}
@@ -236,8 +234,8 @@ function Hero() {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                 </svg>
                             </motion.a>
-                            <motion.a 
-                                href="#features" 
+                            <motion.a
+                                href="#features"
                                 className="btn-outline-gold inline-flex items-center gap-2 text-sm py-3.5 px-7 focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-transparent"
                                 aria-label="Learn how Gold.fi works"
                                 whileHover={{ scale: 1.05 }}
@@ -289,7 +287,7 @@ function Hero() {
                             transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
                             style={{ zIndex: 1 }}
                         />
-                        
+
                         {/* Rotating ring */}
                         <motion.svg
                             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px]"
@@ -315,7 +313,7 @@ function Hero() {
                                 </linearGradient>
                             </defs>
                         </motion.svg>
-                        
+
                         <div className="relative" style={{ zIndex: 10 }}>
                             {/* Phone frame */}
                             <div className="phone-mockup gold-glow" style={{ filter: 'drop-shadow(0 20px 60px rgba(0,0,0,0.5))' }}>
