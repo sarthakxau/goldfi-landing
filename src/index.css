@@ -457,12 +457,12 @@ section {
 }
 
 /* Link underline animation */
-a:not(.btn-gold):not(.btn-outline-gold) {
+a:not(.btn-gold):not(.btn-outline-gold):not(.ticker-pill) {
   position: relative;
   text-decoration: none;
 }
 
-a:not(.btn-gold):not(.btn-outline-gold)::after {
+a:not(.btn-gold):not(.btn-outline-gold):not(.ticker-pill)::after {
   content: '';
   position: absolute;
   bottom: -2px;
@@ -473,8 +473,37 @@ a:not(.btn-gold):not(.btn-outline-gold)::after {
   transition: width 0.3s ease;
 }
 
-a:not(.btn-gold):not(.btn-outline-gold):hover::after {
+a:not(.btn-gold):not(.btn-outline-gold):not(.ticker-pill):hover::after {
   width: 100%;
+}
+
+/* Ticker pill border sweep animation */
+.ticker-pill {
+  position: relative;
+  text-decoration: none;
+}
+
+.ticker-pill::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  padding: 1px;
+  background: linear-gradient(90deg, #D4A93A, #F2C94C);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.4s ease;
+}
+
+.ticker-pill:hover::before {
+  clip-path: inset(0 0 0 0);
 }
 
 /* Enhanced card hover effects */
