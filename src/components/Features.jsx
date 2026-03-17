@@ -42,22 +42,7 @@ const features = [
 // Mini visualizations for each feature
 function TetherGoldLogo({ size = 36 }) {
     return (
-        <div
-            className="rounded-full flex items-center justify-center relative overflow-hidden flex-shrink-0"
-            style={{
-                width: size,
-                height: size,
-                background: 'linear-gradient(135deg, #F2C94C 0%, #D4A93A 50%, #B8941F 100%)',
-            }}
-        >
-            <div
-                className="rounded-full flex items-center justify-center bg-white/20 backdrop-blur-sm"
-                style={{ width: size * 0.75, height: size * 0.75 }}
-            >
-                <span className="text-white font-bold" style={{ fontSize: size * 0.35 }}>₮</span>
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-transparent" />
-        </div>
+        <img src="/icons/xaut-icon.svg" alt="Tether Gold" className="flex-shrink-0" style={{ width: size, height: size }} />
     )
 }
 
