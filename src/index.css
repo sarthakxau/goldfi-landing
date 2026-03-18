@@ -15,12 +15,14 @@
   --walnut-500: #96806A;
   --walnut-800: #362A1C;
   --walnut-900: #231A10;
+  --page-bg: #101012;
 }
 
 html {
   scroll-behavior: smooth;
   -webkit-tap-highlight-color: transparent;
   scroll-padding-top: 80px;
+  background: var(--page-bg);
 }
 
 @media (max-width: 640px) {
@@ -45,7 +47,7 @@ html {
 
 body {
   @apply text-walnut-800 antialiased;
-  background: #0a0a0f;
+  background: var(--page-bg);
   font-family: 'Satoshi', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
