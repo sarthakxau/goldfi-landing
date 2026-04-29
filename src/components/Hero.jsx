@@ -209,7 +209,7 @@ function Hero() {
                                             <svg className="w-2 h-2 text-emerald-600" viewBox="0 0 20 20" fill="currentColor">
                                                 <path fillRule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" clipRule="evenodd" />
                                             </svg>
-                                            <span className="text-[9px] font-semibold text-emerald-700">4.2%</span>
+                                            <span className="text-[9px] font-semibold text-emerald-700">4.2%*</span>
                                         </div>
                                     </div>
 
@@ -234,7 +234,7 @@ function Hero() {
                                         <div className="flex gap-2">
                                             {/* Gold is up card */}
                                             <div className="flex-1 bg-white rounded-2xl p-3 border border-walnut-100/60">
-                                                <p className="text-[9px] text-walnut-600 font-medium mb-0.5">Gold is up <span className="text-emerald-600 font-bold">21.80%</span></p>
+                                                <p className="text-[9px] text-walnut-600 font-medium mb-0.5">Gold is up <span className="text-emerald-600 font-bold">21.80%*</span></p>
                                                 <p className="text-[7px] text-walnut-400 mb-2">in the last 90 days.</p>
                                                 <svg viewBox="0 0 120 28" className="w-full h-5">
                                                     <defs>
@@ -281,7 +281,7 @@ function Hero() {
                                                 <div className="flex-1">
                                                     <p className="text-[7px] text-emerald-600 font-semibold mb-0.5">Wealth Growth</p>
                                                     <div className="flex items-center gap-0.5">
-                                                        <p className="text-xs font-bold text-walnut-800">+3.2%</p>
+                                                        <p className="text-xs font-bold text-walnut-800">+3.2%*</p>
                                                         <svg className="w-2 h-2 text-emerald-500" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" clipRule="evenodd" /></svg>
                                                     </div>
                                                     <p className="text-[7px] text-walnut-400">+₹12,340</p>
@@ -325,7 +325,7 @@ function Hero() {
                                     </div>
                                     <div>
                                         <p className="text-[9px] text-walnut-400">Monthly yield</p>
-                                        <p className="text-xs font-semibold text-emerald-600">+₹8,920</p>
+                                        <p className="text-xs font-semibold text-emerald-600">+₹8,920*</p>
                                     </div>
                                 </div>
                             </motion.div>

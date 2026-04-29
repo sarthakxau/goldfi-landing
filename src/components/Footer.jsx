@@ -2,6 +2,16 @@ function Footer() {
     return (
         <footer className="py-12 dark-section border-t border-walnut-800/60">
             <div className="max-w-6xl mx-auto px-5 sm:px-8">
+                {/* Disclosures */}
+                <div className="mb-10 pb-10 border-b border-walnut-700/30">
+                    <p className="text-[11px] leading-relaxed text-walnut-500 max-w-3xl mx-auto text-center text-pretty">
+                        <span className="font-semibold text-walnut-300">*</span> APY and return figures shown on this page (e.g. 3–5% APY, 4.2%, 21.80%, +3.2%) are illustrative,
+                        based on historical averages from third-party DeFi protocols (Aave V3, Fluid, Morpho) and gold spot price.
+                        They are not guaranteed, may change without notice, and do not constitute investment advice. Live values displayed in
+                        the app reflect real-time data sources. Gold pricing in the phone preview is for demonstration only.
+                    </p>
+                </div>
+
                 {/* Trust badges */}
                 <div className="flex flex-wrap items-center justify-center gap-8 mb-10 pb-10 border-b border-walnut-700/30">
                     <div className="flex items-center gap-2.5">

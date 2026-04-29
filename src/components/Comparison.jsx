@@ -3,7 +3,7 @@ import { motion, useInView } from 'framer-motion'
 
 const rows = [
     { feature: 'Custody fees', goldfi: 'None', digital: '3–5% premium', etfs: '0.4% / yr', physical: '0.5–1.5% / yr' },
-    { feature: 'Yield', goldfi: '3–5% APY', digital: null, etfs: null, physical: null },
+    { feature: 'Yield', goldfi: '3–5% APY*', digital: null, etfs: null, physical: null },
     // { feature: 'Borrow', goldfi: 'Instant, on-chain', digital: null, etfs: 'Margin only', physical: 'Banks only' },
     { feature: 'Transfer', goldfi: 'Anyone, instantly', digital: null, etfs: null, physical: 'In person' },
     { feature: 'Spend', goldfi: 'Card', digital: null, etfs: null, physical: null },
